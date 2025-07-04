@@ -1,4 +1,4 @@
-# 🧩 JobConnect – Job Board Management API
+#  JobConnect – Job Board Management API
 
 A backend RESTful API built with Spring Boot that enables job seekers and companies to register, post jobs, and manage applications through a structured role-based architecture.
 
