@@ -71,32 +71,49 @@ src/
 
 ## ✅ How to Run
 
-1. Clone the repository  
-   ```
-   git clone https://github.com/yourusername/jobconnect.git
-   cd jobconnect
+Follow these steps to run the project locally:
+
+### 1. Clone the Repository
+
+```
+git clone https://github.com/yourusername/jobconnect.git
+cd jobconnect
 ````
 
-2. Set up MySQL and create a database (e.g., `jobconnect_db`)
+### 2. Set Up MySQL
 
-3. Configure `application.properties` with your DB credentials
+* Install MySQL if not already installed.
+* Create a database named `jobconnect_db` (or any name you prefer).
 
-   ```
-   spring.datasource.url=jdbc:mysql://localhost:3306/jobconnect_db
-   spring.datasource.username=yourUsername
-   spring.datasource.password=yourPassword
-   ```
+```
+CREATE DATABASE jobconnect_db;
+```
 
-4. Run the Spring Boot app
+### 3. Configure Database in `application.properties`
 
-   ```
-   mvn spring-boot:run
-   ```
+Update the following section in `src/main/resources/application.properties`:
 
-5. Test the APIs using Postman
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/jobconnect_db
+spring.datasource.username=yourUsername
+spring.datasource.password=yourPassword
+```
+
+### 4. Run the Spring Boot Application
+
+```
+mvn spring-boot:run
+```
+
+### 5. Test the APIs
+
+Use [Postman](https://www.postman.com/) or any API testing tool to test the endpoints.
+
+---
 
 ## ✍️ Author
 
-**Shubham Raj Verma**
-Java Full Stack Developer
+**Shubham Raj Verma**  
+*Java Full Stack Developer*
+
 
