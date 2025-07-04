@@ -1,5 +1,9 @@
 package com.srvgeek.jobboardapi.dao;
 
-public class CompanyDao {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.srvgeek.jobboardapi.entity.Company;
+
+public interface CompanyDao extends JpaRepository<Company, Long>{
 
 }

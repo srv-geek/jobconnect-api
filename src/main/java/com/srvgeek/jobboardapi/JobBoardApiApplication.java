@@ -8,6 +8,7 @@ public class JobBoardApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JobBoardApiApplication.class, args);
+		System.out.println("Application is Started...");
 	}
 
 }
