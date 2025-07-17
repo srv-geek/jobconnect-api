@@ -23,8 +23,9 @@ public class CompanyController {
 	private CompanyService companyService;
 
 	@PostMapping("/register")
-	public Company createCompany(@RequestBody Company company) {
-		return companyService.createCompany(company);
+	public CompanyDTO registerCompany(@RequestBody CompanyDTO companyDTO) {
+		Company savedCompany = companyService.createCompanyFromDTO(companyDTO);
+		return companyService.getCompanyDTOById(savedCompany.getId());
 	}
 
 	@GetMapping

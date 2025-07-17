@@ -16,8 +16,11 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String name;
 	private String location;
+	private String description;
+	private String industry;
 
 	@OneToMany(mappedBy = "company")
 	private List<Job> jobs;
@@ -27,15 +30,14 @@ public class Company {
 	private User user;
 
 	public Company() {
-
 	}
 
-	public Company(Long id, String name, String location, List<Job> jobs, User user) {
-		super();
+	public Company(Long id, String name, String location, String description, String industry, User user) {
 		this.id = id;
 		this.name = name;
 		this.location = location;
-		this.jobs = jobs;
+		this.description = description;
+		this.industry = industry;
 		this.user = user;
 	}
 
@@ -63,6 +65,22 @@ public class Company {
 		this.location = location;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
 	public List<Job> getJobs() {
 		return jobs;
 	}
@@ -81,8 +99,7 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", location=" + location + ", jobs=" + jobs + ", user=" + user
-				+ "]";
+		return "Company [id=" + id + ", name=" + name + ", location=" + location + ", description=" + description
+				+ ", industry=" + industry + ", user=" + (user != null ? user.getId() : "null") + "]";
 	}
-
 }

@@ -23,8 +23,9 @@ public class JobController {
 	private JobService jobService;
 
 	@PostMapping("/post")
-	public Job postJob(@RequestBody Job job) {
-		return jobService.postJob(job);
+	public JobDTO postJob(@RequestBody JobDTO jobDTO) {
+		Job savedJob = jobService.createJobFromDTO(jobDTO);
+		return jobService.getJobDTOById(savedJob.getId());
 	}
 
 	@GetMapping
@@ -32,19 +33,16 @@ public class JobController {
 		return jobService.getAllJobDTOs();
 	}
 
-	// Return single job by ID as DTO
 	@GetMapping("/{id}")
 	public JobDTO getJob(@PathVariable Long id) {
 		return jobService.getJobDTOById(id);
 	}
 
-	// Filter by location
 	@GetMapping("/location/{location}")
 	public List<JobDTO> getJobsByLocation(@PathVariable String location) {
 		return jobService.getJobsByLocation(location);
 	}
 
-	// Filter by job type
 	@GetMapping("/type/{jobType}")
 	public List<JobDTO> getJobsByType(@PathVariable String jobType) {
 		return jobService.getJobsByType(jobType);

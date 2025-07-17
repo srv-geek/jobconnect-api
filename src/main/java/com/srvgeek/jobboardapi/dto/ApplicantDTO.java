@@ -6,6 +6,12 @@ public class ApplicantDTO {
 	private String name;
 	private String email;
 	private String resumeUrl;
+	private String skills;
+	private String experience;
+	private Long userId;
+
+	public ApplicantDTO() {
+	}
 
 	public Long getId() {
 		return id;
@@ -39,9 +45,34 @@ public class ApplicantDTO {
 		this.resumeUrl = resumeUrl;
 	}
 
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public String toString() {
-		return "ApplicantDTO [id=" + id + ", name=" + name + ", email=" + email + ", resumeUrl=" + resumeUrl + "]";
+		return "ApplicantDTO [id=" + id + ", name=" + name + ", email=" + email + ", resumeUrl=" + resumeUrl
+				+ ", skills=" + skills + ", experience=" + experience + ", userId=" + userId + "]";
 	}
 
 }

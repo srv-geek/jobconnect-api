@@ -16,9 +16,12 @@ public class Applicant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private String name;
 	private String email;
 	private String resumeUrl;
+	private String skills;
+	private String experience;
 
 	@OneToMany(mappedBy = "applicant")
 	private List<Application> applications;
@@ -28,15 +31,16 @@ public class Applicant {
 	private User user;
 
 	public Applicant() {
-
 	}
 
-	public Applicant(Long id, String name, String email, List<Application> applications, User user) {
-		super();
+	public Applicant(Long id, String name, String email, String resumeUrl, String skills, String experience,
+			User user) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.applications = applications;
+		this.resumeUrl = resumeUrl;
+		this.skills = skills;
+		this.experience = experience;
 		this.user = user;
 	}
 
@@ -72,6 +76,22 @@ public class Applicant {
 		this.resumeUrl = resumeUrl;
 	}
 
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
 	public List<Application> getApplications() {
 		return applications;
 	}
@@ -90,8 +110,7 @@ public class Applicant {
 
 	@Override
 	public String toString() {
-		return "Applicant [id=" + id + ", name=" + name + ", email=" + email + ", resumeUrl=" + resumeUrl
-				+ ", applications=" + applications + ", user=" + user + "]";
+		return "Applicant [id=" + id + ", name=" + name + ", email=" + email + ", resumeUrl=" + resumeUrl + ", skills="
+				+ skills + ", experience=" + experience + ", user=" + (user != null ? user.getId() : "null") + "]";
 	}
-
 }

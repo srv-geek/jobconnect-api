@@ -23,8 +23,9 @@ public class ApplicantController {
 	private ApplicantService applicantService;
 
 	@PostMapping("/register")
-	public Applicant registerApplicant(@RequestBody Applicant applicant) {
-		return applicantService.registerApplicant(applicant);
+	public ApplicantDTO registerApplicant(@RequestBody ApplicantDTO applicantDTO) {
+		Applicant savedApplicant = applicantService.registerApplicantFromDTO(applicantDTO);
+		return applicantService.getApplicantDTOById(savedApplicant.getId());
 	}
 
 	@GetMapping
